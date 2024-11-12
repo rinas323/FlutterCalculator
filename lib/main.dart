@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:universal_calculator/finance/finance_calculator_page.dart';
 import 'package:universal_calculator/general/general_calculations_mainpage.dart';
-import 'package:universal_calculator/scientific/scientific_calculations_mainpage.dart';
 import 'package:math_expressions/math_expressions.dart';
 import 'package:timezone/data/latest.dart' as tz;
 
@@ -81,7 +79,7 @@ class _HomePageState extends State<HomePage> {
         actions: [
           SizedBox(
             width: MediaQuery.of(context).size.width /
-                4, // Distribute equally among 4 icons
+                2, // Distribute equally among 4 icons
             child: IconButton(
               icon: Icon(
                 Icons.calculate_rounded,
@@ -95,7 +93,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           SizedBox(
-            width: MediaQuery.of(context).size.width / 4,
+            width: MediaQuery.of(context).size.width / 2,
             child: IconButton(
               icon: Icon(
                 Icons.grid_view_rounded,
@@ -105,34 +103,6 @@ class _HomePageState extends State<HomePage> {
               onPressed: () {
                 _changePage(1);
                 _changeColor(1);
-              },
-            ),
-          ),
-          SizedBox(
-            width: MediaQuery.of(context).size.width / 4,
-            child: IconButton(
-              icon: Icon(
-                Icons.attach_money,
-                color: _iconColor2,
-              ),
-              iconSize: 29,
-              onPressed: () {
-                _changePage(2);
-                _changeColor(2);
-              },
-            ),
-          ),
-          SizedBox(
-            width: MediaQuery.of(context).size.width / 4,
-            child: IconButton(
-              icon: Icon(
-                Icons.science_outlined,
-                color: _iconColor3,
-              ),
-              iconSize: 25,
-              onPressed: () {
-                _changePage(3);
-                _changeColor(3);
               },
             ),
           ),
@@ -148,10 +118,6 @@ class _HomePageState extends State<HomePage> {
         return GeneralCalculatorPage();
       case 1:
         return GeneralCalculationsPage();
-      case 2:
-        return FinanceCalculatorPage();
-      case 3:
-        return ScientificCalculatorPage();
       default:
         return Container();
     }
